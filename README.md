@@ -6,6 +6,7 @@ How do we know if a random number generator (RNG) is 'good'? In this project we 
 * Numpy BitGenerator (PCG64)
 * RANDU
 * Middle Squares
+* Other (Atmospheric Noise)
 
 The statistical tests we will use are:
 
@@ -13,12 +14,12 @@ The statistical tests we will use are:
 * Means run test for independence
 * Autocorrelation test for independence
 
-In addition sometimes a simple eye test can give a lot of insight! 
+In addition sometimes a simple eye test (bitmap) can give a lot of insight! 
 
 ## Background - Random Number Generators
 
 ### Numpy BitGenerator (PCG64)
-This is the default RNG used in Python's numpy module. It is a PCG, which is short for permuted congruential generator. Developed in 2014, essentially it follows a linear congruential generator as a state-transition function, then uses permutation function as an output function.
+This is the default RNG used in Python's numpy module. It is a PCG, which is short for permuted congruential generator. Developed in 2014, it follows a linear congruential generator as a state-transition function, then uses permutation function as an output function.
 
 ### Randu
 Randu is a linear congruential pseudorandom number generator of the Park–Miller type, and was developed in the 1960s. As mentioned in the course, drawbacks of the generator include correlation between points. In fact, each point lies in one of a set of 15 parallel planes 2^31 apart.
