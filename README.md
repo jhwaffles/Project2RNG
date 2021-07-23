@@ -33,7 +33,8 @@ The midsquares method was developed by Von Neumann in 1949. It is an arithmetic 
 <img src="https://render.githubusercontent.com/render/math?math=X1 = 2100, X1^2 = 04*4100*00">
 <img src="https://render.githubusercontent.com/render/math?math=R_{i}=\frac{X_{i}}{1000}">
 
-and so on..
+### Atmospheric Noise/Other
+Random numbers can come from all kinds of sources! One such source is from atmospheric noise, compiled from random.org.
 
 ## Background - Statistical Tests
 
@@ -70,11 +71,25 @@ if <img src="https://render.githubusercontent.com/render/math?math=|Z0|<=z_{a/2}
 
 
 ## Results
+10000 Pseudo Random numbers (PRNs) were generated from each generator and run through the statistical tests. Significance level of a=0.05 was used for all relevant tests. A summary table of results can be seen below.
 ![Project2TestResults](Project2TestResults.png)
-![PCG64bitmap](PCG64bitmap.png)
-![RANDUbitmap](RANDUbitmap.png)
-![MidSquares](MidSquaresbitmap.png)
-![atmospheric](atmosphericbitmap.png)
 
+Unsurprisingly the mid squares generator did not pass the chi squared test for uniform fit. Surprisingly in this instance the PCG generator from numpy did not pass the chi squared test for uniform fit. When tested in other conditions, it seemed the PCG generator did worse on the chi squared test as the number of PRNs went up.
+RANDU and the atmospheric generator failed to reject the null hypothesis for all tests.
 
+It is hard to say from these tests if any generator is 'good' or 'bad', but evidence points to the mid squares generator fitting very poorly to uniform distribution. What about a visual check?
+
+Bitmaps were generated for each generator. The 10000 random numbers were fit to a 100x100 grid, and mapped to black or white pixels depending on the PRN values.
+
+![PCG64bitmap](PCG64bitmap.png) PCG64 bitmap
+
+![RANDUbitmap](RANDUbitmap.png) RANDU bitmap
+
+![MidSquares](MidSquaresbitmap.png) MidSquare bitmap
+
+![atmospheric](atmosphericbitmap.png) atmospheric bitmap
+
+From this it is very apparent that the mid squares is a 'bad' generator. The numbers don't seem random at all! 
+
+From this exercise it is apparent that there is no one size fits all test to determine if a random number generator (RNG) is 'good' or 'bad'. The most rigorous approach would be to run a battery of statistical tests on each generator. This is just a sample of some of the tests taught in this course - other relevant tests include a permutations test, reverse arrangements test, and ranking tests. In addition to statistical tests, visualization of the data can be a powerful tool to determine the quality of a RNG. Histograms and autocorrelation plots could be used to supplement the battery of tests done.
 
