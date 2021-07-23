@@ -69,5 +69,12 @@ This test provides another way to determine independence by looking at correlati
 if <img src="https://render.githubusercontent.com/render/math?math=|Z0|<=z_{a/2}">, we fail to reject <img src="https://render.githubusercontent.com/render/math?math=H0">.
 
 
+## Results
+![Project2TestResults](Project2TestResults.png)
+![PCG64bitmap](PCG64bitmap.png)
+![RANDUbitmap](RANDUbitmap.png)
+![MidSquares](MidSquaresbitmap.png)
+![atmospheric](atmosphericbitmap.png)
+
 
 
